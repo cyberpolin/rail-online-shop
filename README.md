@@ -22,4 +22,4 @@
 
 Schema design
 
-![schema design](/imgs/shop_schema.png)
+![schema design](/public/imgs/shop_schema.png)
