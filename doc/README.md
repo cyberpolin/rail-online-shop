@@ -2,9 +2,28 @@
 
 ## User Stories
 
-- A user can...
-- A user can...
-- A user can...
+- As an owner, I want to be able to add new products, so that I can have a database of them.
+- As an owner, I want to be to add photos for each of my products.
+- As an owner, I want to be able to view all my products.
+- As an owner, I want to be able to update the descriptions and photos of products.
+- As an owner, I want to be able to delete products from the catalog.
+
+## Wireframe Mockups
+
+Index Page:
+![alt text](Index.png "Index Page")
+
+Single Item:
+![alt text](Single-page.png "Single Product Page")
+
+Add Product Page:
+![alt text](Add.png "Add Product Page")
+
+Edit Product Page:
+![alt text](Edit.png "Edit Product Page")
+
+Delete Product Page:
+![alt text](Delete.png "Delete Product Page")
 
 ## Schema screenshot
 
