@@ -2,18 +2,6 @@
 
 # User Stories
 
-*Users can...*
-
-1. login
-
-2. look at products
-
-3. add products to their cart
-
-4. edit their cart
-
-5. does not need authentication...?
-
 *Products can...*
 
 1. have a placeholder image, name, description, and price
@@ -28,10 +16,10 @@
 
 *Carts have...*
 
-1. a user and hold products
+1. a session id and hold products
 
 2. can be purchased
 
 Schema design
 
-![schema design](/public/imgs/shop_schema.png)
+![schema design](./public/imgs/shop_schema.png)
