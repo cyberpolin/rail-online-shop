@@ -1,7 +1,4 @@
-%h1 Edit Product
-
-= form_for :product, url: product_path(@product), method: :patch do |f|
-
+= form_for :product, url: products_path do |f|
   %p
     =f.label :name
     =f.text_field :name
@@ -9,14 +6,14 @@
     =f.label :description
     =f.text_area :description
   %p
-    =f.label :price
-    =f.text_field :price
-  %p
     =f.label :photo
     =f.text_field :photo
   %p
     =f.label :sku
     =f.text_field :sku
+  %p
+    =f.label :price
+    =f.text_field :price
   %p
     =f.label :color
     =f.text_field :color
@@ -24,5 +21,5 @@
     =f.label :size
     =f.text_field :size
   %p
-    = link_to 'Cancel', products_path
-    = f.submit
+
+    =f.submit(value="Add Product")
