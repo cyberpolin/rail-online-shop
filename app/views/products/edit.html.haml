@@ -34,5 +34,27 @@
     =f.label :size
     =f.text_field :size
   %p
+    -# form.collection_check_boxes(:category_ids, @product.categories, :id, :name )
+
+    -# -@categories.each do |category|
+    -#   =category.name
+    -#   -category.products.each do |product|
+    -#     - if product.id == @product.id
+    -#       %input{:type => 'checkbox', :value => category.id, :checked => true}
+    -#     - else
+    -#       %input{:type => 'checkbox', :value => category.id, :checked => false}
+
+    -@categories.each do |category|
+      =category.name
+      - if @product.categories.include?(category)
+        %input{:type => 'checkbox', :value => category.id, :checked => true}
+      - else
+        %input{:type => 'checkbox', :value => category.id, :checked => false}
+
+
+
+
+
+  %p
     = link_to 'Cancel', products_path
     = f.submit

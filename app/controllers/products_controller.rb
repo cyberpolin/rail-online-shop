@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @categories = Category.all
   end
 
   def create
@@ -31,7 +32,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-
+    puts ">>>>>#{product_params}"
     if @product.update(product_params)
       flash[:notice] = "You have successfully updated the product."
       redirect_to @product

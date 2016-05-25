@@ -5,6 +5,7 @@
 .row
   .four.columns
     %img.u-max-full-width{src: @product.photo}
+
   .seven.columns
     %p
       Name:
@@ -25,8 +26,13 @@
       Color:
       = @product.color
   .one.column
-
+.row
+  .four.columns
     -@product.categories.each do |category|
+      = category.name
+  .seven.columns
+  .one.columns
+
 
     = link_to 'Add', new_product_path
     = link_to 'Edit', edit_product_path(@product)
