@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   get 'products/new'
 
-
-
   get 'products/show'
 
   get 'products/edit'
@@ -18,6 +16,7 @@ Rails.application.routes.draw do
 
   resources :products
 
-  get 'products/index'
+  # get 'products/index'
+
   root 'products#index'
 end
