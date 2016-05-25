@@ -23,4 +23,4 @@ group :development, :test do
   gem 'chromedriver-helper'
 end
 
-ruby "2.2.1"
+ruby "2.2.5"
