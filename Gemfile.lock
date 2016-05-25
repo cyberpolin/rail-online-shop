@@ -70,6 +70,8 @@ GEM
     eventmachine (1.2.0.1)
     execjs (2.7.0)
     ffi (1.9.10)
+    font-awesome-sass (4.6.2)
+      sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -164,6 +166,13 @@ GEM
     ruby_parser (3.8.2)
       sexp_processor (~> 4.1)
     rubyzip (1.2.0)
+    sass (3.4.22)
+    sass-rails (5.0.4)
+      railties (>= 4.0.0, < 5.0)
+      sass (~> 3.1)
+      sprockets (>= 2.8, < 4.0)
+      sprockets-rails (>= 2.0, < 4.0)
+      tilt (>= 1.1, < 3)
     selenium-webdriver (2.53.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
@@ -202,6 +211,7 @@ DEPENDENCIES
   capybara
   chromedriver-helper
   database_cleaner
+  font-awesome-sass
   haml-rails
   jquery-rails
   pg
@@ -209,9 +219,13 @@ DEPENDENCIES
   rails
   rails_12factor
   rspec-rails
+  sass-rails
   selenium-webdriver
   thin
   uglifier
 
+RUBY VERSION
+   ruby 2.2.5p319
+
 BUNDLED WITH
-   1.12.3
+   1.12.4
