@@ -3,9 +3,9 @@
   = content_tag :div, msg, class: name
 
 .row
-  .four.columns
+  .three.columns
     %img.u-max-full-width{src: @product.photo}
-  .seven.columns
+  .six.columns
     %p
       Name:
       = @product.name
@@ -24,10 +24,12 @@
     %p
       Color:
       = @product.color
-  .one.column
+  .three.columns
 
     -@product.categories.each do |category|
-
+      = category.name
+    %br
+    %br
     = link_to 'Add', new_product_path
     = link_to 'Edit', edit_product_path(@product)
     = link_to 'Delete', product_path(@product), method: :delete
