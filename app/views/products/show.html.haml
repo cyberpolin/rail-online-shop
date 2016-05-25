@@ -1,0 +1,24 @@
+%h1 View Product
+= link_to 'Add', new_product_path
+= link_to 'Edit', edit_product_path(@product)
+= link_to 'Delete', product_path(@product), method: :delete
+%img{src: @product.photo}
+%p
+  Name:
+  = @product.name
+%p
+  Description:
+  = @product.description
+%p
+  Price:
+  = @product.price
+%p
+  SKU:
+  = @product.sku
+%p
+  Size:
+  = @product.size
+%p
+  Color:
+  = @product.color
+
