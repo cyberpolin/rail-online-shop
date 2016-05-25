@@ -40,15 +40,15 @@ Happy Hacking, now GO Build! <3
 
 ### Third Iteration
 - The client wants users. Add user registration and login. There should be an admin user who will have access to the admin console.
-Rails has_secure_password (bcrypt) is sufficient for the auth.
-- STRETCH ONLY: Consider using OAuth with Gmail/Facebook for your user model.
+	- Rails has_secure_password (bcrypt) is sufficient for the auth.
+	- STRETCH ONLY: Consider using OAuth with Gmail/Facebook for your user model.
 - Products should be classified into categories. A product can have many categories and a category can have many products. On the home page, have a link that shows all the categories available for selection. When a particular category is clicked, show all products that have that category.
 - A product’s show page should show which categories the product is in
 - Update the tests for categories and for your new authentication scheme.
 - Turns out HTTP Basic Authentication has some flaws. Replace it with session based authentication and authorization with a Users table.
 - Now that we have users the client wants us to start spamming them constantly. Build an ActionMailer adapter for your app that will send a welcome email when the user signs up.
-- Basic Tutorial using either gmail or MailGun. This uses Delayed Job. Do this one first.
-- STRETCH ONLY: Advanced Tutorial with Redis & Sidekiq, as an alternative to Delayed Job.
+	- Basic Tutorial using either gmail or MailGun. This uses Delayed Job. Do this one first.
+	- STRETCH ONLY: Advanced Tutorial with Redis & Sidekiq, as an alternative to Delayed Job.
 - Please seed your database with
-- User: username: 'tom', email: 'tom@tom.com', password: 'tomtom'
-- Admin: username: 'tim', email: 'tim@tim.com', password: 'timtim'
+	- User: username: 'tom', email: 'tom@tom.com', password: 'tomtom'
+	- Admin: username: 'tim', email: 'tim@tim.com', password: 'timtim'

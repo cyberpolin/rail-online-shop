@@ -23,6 +23,7 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'faker'
 end
 
-ruby "2.2.5"
+ruby "2.2.1"
