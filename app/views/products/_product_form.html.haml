@@ -1,4 +1,11 @@
 = form_for :product, url: products_path do |f|
+  - if @product.errors.any?
+    %div.error
+      = pluralize(@product.errors.count, "error")
+
+    - @product.errors.full_messages.each do |msg|
+      %li
+        =msg
   %p
     =f.label :name
     =f.text_field :name

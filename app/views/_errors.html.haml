@@ -1,0 +1,6 @@
+- if @product.errors.any?
+  %div.error
+    = pluralize(@product.errors.count, "error")
+
+  - @article.errors.full_messages.each do |msg|
+    %li =msg
