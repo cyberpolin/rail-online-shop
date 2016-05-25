@@ -28,4 +28,7 @@
       %td= product.size
 
       %td= link_to 'Show', product_path(product)
-      %td= link_to 'Edit', edit_product_path(product)
+      %td
+        = link_to edit_product_path(product) do
+          %i.fa.fa-pencil-square-o
+

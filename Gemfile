@@ -9,6 +9,7 @@ gem 'thin'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'sass-rails'
+gem 'font-awesome-sass'
 gem 'rails_12factor', group: :production
 
 
