@@ -1,4 +1,8 @@
 %h1 All Products
+
+- flash.each do |name, msg|
+  = content_tag :div, msg, class: name
+
 %table
   %tr
     %th Name

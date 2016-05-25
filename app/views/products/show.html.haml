@@ -1,4 +1,7 @@
 %h1 View Product
+- flash.each do |name, msg|
+  = content_tag :div, msg, class: name
+
 .row
   .four.columns
     %img.u-max-full-width{src: @product.photo}

@@ -9,6 +9,7 @@
   position: fixed;
   top: 0;
   height: 100px;
+  z-index: 100;
   background: #EEEEEE;
 }
 
@@ -19,6 +20,7 @@
   top: 0;
   right: 0;
   height: 100px;
+  z-index: 100;
   background: #DDDDDD;
 }
 
@@ -34,7 +36,7 @@
 }
 
 header {
-  z-index: 1;
+  z-index: 100;
 }
 
 footer {
@@ -52,4 +54,12 @@ footer p {
 
 .container {
   margin-top: 100px;
+}
+.notice{
+  background-color: #CCC;
+  border:1px solid #30ab7d;
+  display: block;
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
 }
