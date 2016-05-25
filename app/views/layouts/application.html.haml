@@ -10,5 +10,16 @@
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
+    %header
+      %div#logo
+        %p Shambhavi's Super Shoppe
+      %div#nav-menu
+        %ul
+          %li
+            = link_to("Home", "/")
+          %li
+            = link_to("Admin", "/admin")
     %div.container
       = yield
+    %footer
+      %p González-Melton Productions, Copyright 2016
