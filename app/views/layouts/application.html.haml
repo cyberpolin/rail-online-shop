@@ -3,11 +3,23 @@
   %head
     %link{:href => '/css/normalize.css', :rel => 'stylesheet', :media =>'all'}
     %link{:href => '/css/skeleton.css', :rel => 'stylesheet', :media =>'all'}
+    %link{:href => '/css/style.css', :rel => 'stylesheet', :media =>'all'}
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Shoppe
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
+    %header
+      %div#logo
+        %p Shambhavi's Super Shoppe
+      %div#nav-menu
+        %ul
+          %li
+            = link_to("Home", "/")
+          %li
+            = link_to("Admin", "/admin")
     %div.container
       = yield
+    %footer
+      %p González-Melton Productions, Copyright 2016

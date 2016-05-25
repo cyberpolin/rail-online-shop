@@ -10,6 +10,7 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'rails_12factor', group: :production
 
+
 group :development, :test do
   gem 'pry-rails'
   gem 'byebug'
@@ -22,3 +23,4 @@ group :development, :test do
   gem 'chromedriver-helper'
 end
 
+ruby "2.2.5"

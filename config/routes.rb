@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'admin', to: 'admin#index'
+  # get '/patients/:id', to: 'patients#show'
   get 'products/new'
 
   get 'products/show'

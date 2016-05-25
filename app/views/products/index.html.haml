@@ -1,5 +1,8 @@
 %h1 All Products
-= link_to 'Add', new_product_path
+
+- flash.each do |name, msg|
+  = content_tag :div, msg, class: name
+
 %table
   %tr
     %th Name
@@ -10,5 +13,4 @@
       %td= product.name
       %td= product.description
       %td= link_to 'Show', product_path(product)
-      %td= link_to 'Edit', edit_product_path(product)
 
