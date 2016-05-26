@@ -13,4 +13,8 @@
       %td= product.name
       %td= product.description
       %td= link_to 'Show', product_path(product)
+      %td
+        - if admin?
+          = link_to edit_product_path(product) do
+            %i.fa.fa-pencil-square-o 
 
