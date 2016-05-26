@@ -18,6 +18,14 @@ Rails.application.routes.draw do
 
   resources :products
 
+  resources :users
+
+  resources :sessions
+
+  get 'sessions/new'
+
+  get 'logout', to: 'sessions#delete'
+
   # get 'products/index'
 
   root 'products#index'
