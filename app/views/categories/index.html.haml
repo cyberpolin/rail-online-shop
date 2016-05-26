@@ -1,0 +1,19 @@
+%h1 Categories list
+
+= link_to 'Add Category', new_category_path
+%table.u-full-width
+  %thead
+    %tr
+      %th Name
+      %th Description
+
+      %th{:colspan => "2"} Options
+  %tbody
+  - @categories.each do |category|
+    %tr
+      %td= category.name
+      %td= category.description
+
+
+      %td
+      %td

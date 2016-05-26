@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
 
+  resources :categories
+
   get 'admin', to: 'admin#index'
   # get '/patients/:id', to: 'patients#show'
-  get 'products/new'
+  # get 'products/new'
 
-  get 'products/show'
+  # get 'products/show'
 
-  get 'products/edit'
+  # get 'products/edit'
 
-  get 'products/update'
+  # get 'products/update'
 
-  get 'products/destroy'
+  # get 'products/destroy'
 
-  get 'products/index'
+  # get 'products/index'
 
-  post 'products/index'
+  # post 'products/index'
 
   resources :products
 

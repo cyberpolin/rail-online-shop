@@ -47,9 +47,9 @@
     -@categories.each do |category|
       =category.name
       - if @product.categories.include?(category)
-        %input{:type => 'checkbox', :value => category.id, :checked => true}
+        %input{:type => 'checkbox', :name => "category[]", :value => category.id, :checked => true}
       - else
-        %input{:type => 'checkbox', :value => category.id, :checked => false}
+        %input{:type => 'checkbox', :name => "category[]", :value => category.id, :checked => false}
 
 
 

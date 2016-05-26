@@ -42,7 +42,8 @@ Happy Hacking, now GO Build! <3
 - The client wants users. Add user registration and login. There should be an admin user who will have access to the admin console.
 	- Rails has_secure_password (bcrypt) is sufficient for the auth.
 	- STRETCH ONLY: Consider using OAuth with Gmail/Facebook for your user model.
-- Products should be classified into categories. A product can have many categories and a category can have many products. On the home page, have a link that shows all the categories available for selection. When a particular category is clicked, show all products that have that category.
+
+[x] Products should be classified into categories. A product can have many categories and a category can have many products. On the home page, have a link that shows all the categories available for selection. When a particular category is clicked, show all products that have that category.
 - A product’s show page should show which categories the product is in
 - Update the tests for categories and for your new authentication scheme.
 - Turns out HTTP Basic Authentication has some flaws. Replace it with session based authentication and authorization with a Users table.
