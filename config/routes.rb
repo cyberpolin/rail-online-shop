@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :categories
+
+  resources :categories do
+    resources :products
+  end
 
   get 'admin', to: 'admin#index'
   # get '/patients/:id', to: 'patients#show'

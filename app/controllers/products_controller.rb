@@ -2,8 +2,11 @@ class ProductsController < ApplicationController
   http_basic_authenticate_with name: "admin", password: "secret", except: [:index, :show]
 
   def index
+    if params[:category_id]
+      return @products = Category.find(params[:category_id]).products
+    end
     @products = Product.all.order(id: :desc)
-
+    p
   end
 
   def new
@@ -45,7 +48,7 @@ class ProductsController < ApplicationController
     params[:category].each {|category| categories_obj_ary << Category.find(category)}
     #product_params[:category] = categories_obj_ary WHY IS THIS NOT WORKING
 
-    p product_params
+
     if @product.update(product_params) && @product.update(categories: categories_obj_ary)
       flash[:notice] = "You have successfully updated the product."
       redirect_to @product

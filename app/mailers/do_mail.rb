@@ -1,0 +1,2 @@
+class DoMail < ApplicationMailer
+end
