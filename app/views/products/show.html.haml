@@ -32,7 +32,7 @@
       =link_to category.name, categories_path+'/'+category.id.to_s+products_path
       ,
   .seven.columns
-
-    = link_to 'Add', new_product_path
-    = link_to 'Edit', edit_product_path(@product)
-    = link_to 'Delete', product_path(@product), method: :delete
+    - if admin?
+      = link_to 'Add', new_product_path
+      = link_to 'Edit', edit_product_path(@product)
+      = link_to 'Delete', product_path(@product), method: :delete

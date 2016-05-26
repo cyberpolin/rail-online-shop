@@ -12,16 +12,23 @@
   %body
     %header
       %div#logo
-        %p Shambhavi's Super Shoppe
+        %p Hunter's Hella Hot Shoppe
       %div#nav-menu
         %ul
+          - if logged_in?
+            %li
+              = link_to("Home", "/")
+            %li
+              = link_to("Log Out", "/logout")
+          - else
+            %li
+              = link_to("Log In", "/sessions/new")
+            %li
+              = link_to("Sign Up", "/users/new")
+
           %li
-            = link_to("Home", "/")
-          %li
-            = link_to("Admin", "/admin")
-            %ul
-              %li
-                = link_to("Categories", "/categories")
+            = link_to("Categories", "/categories")
+
     %div.container
       = yield
     %footer
