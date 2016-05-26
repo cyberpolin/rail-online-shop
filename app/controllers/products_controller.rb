@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   # http_basic_authenticate_with name: "admin", password: "secret", except: [:index, :show]
 
+  before_action :require_admin, except: [:index, :show]
+
   def index
     @products = Product.all
   end
@@ -54,6 +56,13 @@ class ProductsController < ApplicationController
   private
     def product_params
       params.require(:product).permit(:name, :description, :photo, :sku, :price, :color, :size)
+    end
+
+    def require_admin
+      unless admin?
+        flash[:error] = "You must be logged in as an admin to access this page."
+        redirect_to '/sessions/new'
+      end
     end
 
 end
