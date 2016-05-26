@@ -1,0 +1,17 @@
+%h1 View Category
+-flash.each do |name, msg|
+  =content_tag :div, msg, class: name
+
+.row
+  .five.columns
+
+  .seven.columns
+  %p
+    Name:
+    = @category.name
+  %p
+    Description:
+    = @category. description
+  = link_to 'Add', new_category_path
+  = link_to 'Edit', edit_category_path(@category)
+  = link_to 'Delete', category_path(@category), method: :delete

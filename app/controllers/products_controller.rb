@@ -4,11 +4,16 @@ class ProductsController < ApplicationController
   before_action :require_admin, except: [:index, :show]
 
   def index
-    @products = Product.all
+    if params[:category_id]
+      return @products = Category.find(params[:category_id]).products
+    end
+    @products = Product.all.order(id: :desc)
+    p
   end
 
   def new
     @product = Product.new
+    @categories = Category.all
   end
 
   def show
@@ -23,6 +28,12 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
 
+    categories_obj_ary = []
+    params[:category].each {|category| categories_obj_ary << Category.find(category)}
+    #product_params[:category] = categories_obj_ary WHY IS THIS NOT WORKING
+
+    @product.update(product_params) && @product.update(categories: categories_obj_ary)
+
     if @product.save
       flash[:notice] = "You have successfully added a product."
       redirect_to @product
@@ -34,8 +45,13 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    puts ">>>>>#{product_params}"
-    if @product.update(product_params)
+
+    categories_obj_ary = []
+    params[:category].each {|category| categories_obj_ary << Category.find(category)}
+    #product_params[:category] = categories_obj_ary WHY IS THIS NOT WORKING
+
+
+    if @product.update(product_params) && @product.update(categories: categories_obj_ary)
       flash[:notice] = "You have successfully updated the product."
       redirect_to @product
     else

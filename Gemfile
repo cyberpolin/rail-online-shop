@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.1"
+
 gem 'rails'
 gem 'pg'
 
@@ -27,4 +29,3 @@ group :development, :test do
   gem 'faker'
 end
 
-ruby "2.2.1"
