@@ -10,8 +10,14 @@ User.delete_all
 end
 
 30.times do
-	Product.create(name: Faker::Commerce.product_name, description: Faker::Hipster.sentence(10, false, 20),
-		photo: "https://images3.alphacoders.com/658/658610.jpg", price: Faker::Commerce.price)
+	Product.create(
+		name: Faker::Commerce.product_name,
+		description: Faker::Hipster.sentence(10, false, 20),
+		photo: ["http://baconeering.com/wp-content/uploads/2016/02/bacon-heart.jpg",
+						"http://twistcatering.com/wp-content/uploads/2013/09/steak-bbq.jpg",
+						"http://cdn.shopify.com/s/files/1/0873/8278/products/4_1024x1024.jpg"].sample,
+		price: Faker::Commerce.price
+	)
 end
 
 Product.all.each do |product|

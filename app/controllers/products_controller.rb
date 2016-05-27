@@ -1,6 +1,8 @@
 class ProductsController < ApplicationController
   # http_basic_authenticate_with name: "admin", password: "secret", except: [:index, :show]
 
+  before_action :require_admin, except: [:index, :show]
+
   def index
     if params[:category_id]
       return @products = Category.find(params[:category_id]).products

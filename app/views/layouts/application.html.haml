@@ -5,17 +5,22 @@
     %link{:href => '/css/skeleton.css', :rel => 'stylesheet', :media =>'all'}
     %link{:href => '/css/style.css', :rel => 'stylesheet', :media =>'all'}
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Shoppe
+    %title Hunter's Hella Hot Shoppe
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body
     %header
       %div#logo
-        %p Hunter's Hella Hot Shoppe
+        %p
+          = link_to("Hunter\'s Hella Hot Shoppe", "/")
       %div#nav-menu
         %ul
           - if logged_in?
+            %li
+              Howdy, 
+              = current_user.username
+              !
             %li
               = link_to("Home", "/")
             %li

@@ -13,5 +13,7 @@
       =f.text_field :name, :class =>'u-full-width'
       =f.label :description
       =f.text_area :description, :class =>'u-full-width'
-  =f.submit "Add Category", :class => "button-primary"
+
+  -if admin?
+    =f.submit "Add Category", :class => "button-primary"
 

@@ -1,10 +1,15 @@
 class CategoriesController < ApplicationController
+
+  before_action :require_admin, except: [:index, :show]
+
   def index
     @categories = Category.all
   end
+
   def new
     @category = Category.new
   end
+  
   def update
     @category = Category.find(params[:id])
 

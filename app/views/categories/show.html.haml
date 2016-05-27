@@ -12,6 +12,7 @@
   %p
     Description:
     = @category. description
-  = link_to 'Add', new_category_path
-  = link_to 'Edit', edit_category_path(@category)
-  = link_to 'Delete', category_path(@category), method: :delete
+  - if admin?
+    = link_to 'Add', new_category_path
+    = link_to 'Edit', edit_category_path(@category)
+    = link_to 'Delete', category_path(@category), method: :delete

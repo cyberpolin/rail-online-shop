@@ -1,7 +1,8 @@
 %h1 Categories list
 - flash.each do |name, msg|
   = content_tag :div, msg, class: name
-= link_to 'Add Category', new_category_path
+- if admin?
+  = link_to 'Add Category', new_category_path
 %table.u-full-width
   %thead
     %tr
@@ -19,6 +20,7 @@
           %i.fa.fa-eye
             Show
       %td
-        = link_to edit_category_path(category) do
-          %i.fa.fa-pencil-square-o
-            Edit
+        - if admin?
+          = link_to edit_category_path(category) do
+            %i.fa.fa-pencil-square-o
+              Edit
