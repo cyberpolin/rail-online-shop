@@ -7,5 +7,10 @@ RSpec.feature "Products", type: :feature, :js => true do
       visit root_path
       expect(page).to have_content('Sign Up')
     end
+    it "Should return Log Out" do
+      user = User.create(username: "Billy", email: "billy@mail.com", password: "123")
+      page.set_rack_session(:user_id => user.id)
+       expect(page).to have_content('Log Out')
+    end
   end
 end

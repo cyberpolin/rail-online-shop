@@ -15,6 +15,7 @@ gem 'font-awesome-sass'
 gem 'bcrypt'
 gem 'rails_12factor', group: :production
 gem 'figaro'
+gem 'rack_session_access'
 
 
 group :development, :test do
