@@ -16,7 +16,8 @@ end
 		photo: ["http://baconeering.com/wp-content/uploads/2016/02/bacon-heart.jpg",
 						"http://twistcatering.com/wp-content/uploads/2013/09/steak-bbq.jpg",
 						"http://cdn.shopify.com/s/files/1/0873/8278/products/4_1024x1024.jpg"].sample,
-		price: Faker::Commerce.price
+		price: Faker::Commerce.price,
+		qty_in_stock: [0,1,2,3,4,5,6,7,8,9,10].sample
 	)
 end
 
