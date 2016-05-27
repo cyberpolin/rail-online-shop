@@ -18,7 +18,7 @@
         %ul
           - if logged_in?
             %li
-              Howdy, 
+              Howdy,
               = current_user.username
               !
             %li
@@ -36,5 +36,24 @@
 
     %div.container
       = yield
+    %div#cart-div
+      %div.title
+        %i.fa.fa-shopping-cart
+          Your cart
+        %i.fa.fa-usd
+          0.00
+        %ul
+          %li
+            Item Name
+          %li
+            Item Name
+          %li
+            Item Name
+          %li
+            Item Name
+          %li
+            Item Name
+          %li
+            Item Name
     %footer
       %p González-Melton Productions, Copyright 2016
