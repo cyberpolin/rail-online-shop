@@ -28,5 +28,7 @@
         %input{:type => 'checkbox', :name => "category[]", :value => category.id, :checked => true}
       - else
         %input{:type => 'checkbox', :name => "category[]", :value => category.id, :checked => false}
-  %p
+  %p    
     =f.submit(value="Add Product")
+  / %p
+  /   = link_to 'Cancel', products_path

@@ -2,8 +2,6 @@
 
 = form_for :product, url: product_path(@product), method: :patch do |f|
 
-
-
   - if @product.errors.any?
     %div.error
       = pluralize(@product.errors.count, "error")
@@ -50,10 +48,6 @@
         %input{:type => 'checkbox', :name => "category[]", :value => category.id, :checked => true}
       - else
         %input{:type => 'checkbox', :name => "category[]", :value => category.id, :checked => false}
-
-
-
-
 
   %p
     = link_to 'Cancel', products_path

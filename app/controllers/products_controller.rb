@@ -74,11 +74,4 @@ class ProductsController < ApplicationController
       params.require(:product).permit(:name, :description, :photo, :sku, :price, :color, :size)
     end
 
-    def require_admin
-      unless admin?
-        flash[:error] = "You must be logged in as an admin to access this page."
-        redirect_to '/sessions/new'
-      end
-    end
-
 end
