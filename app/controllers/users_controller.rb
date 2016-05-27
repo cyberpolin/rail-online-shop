@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 		@user = User.new(user_params)
 
 	  if @user.save
+	  	DoMail.welcome_email(@user).deliver!
 	    # If account was created successfully, redirect to login page
 	    redirect_to "/sessions/new"
 	  else

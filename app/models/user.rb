@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  validates :user, :password, :email, presence: true
 
 	include BCrypt
 
