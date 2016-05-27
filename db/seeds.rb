@@ -6,7 +6,7 @@ Product.delete_all
 User.delete_all
 
 10.times do
-	Category.create(name: Faker::Commerce.department)
+	Category.create(name: Faker::Commerce.department, description: Faker::Commerce.department)
 end
 
 30.times do
@@ -24,7 +24,7 @@ Product.all.each do |product|
 	product.categories << Category.all.sample
 end
 
-20.times do 
+20.times do
 	Product.all.sample.categories << Category.all.sample
 end
 
@@ -32,5 +32,5 @@ User.create(username: 'tim', email: 'tim@tim.com', password: 'timtim', utype: 'a
 User.create(username: 'tom', email: 'tom@tom.com', password: 'tomtom', utype: 'user')
 
 
-	
+
 
