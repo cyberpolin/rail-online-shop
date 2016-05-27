@@ -2,10 +2,10 @@ class AdminController < ApplicationController
   # http_basic_authenticate_with name: "admin", password: "secret"
 
   def index
-    @products = Product.all
+    return @products = Product.all
 
-    BOOM!
-    
+    BOOM! #Sorry for the lack of professionalism...
+
   end
 
 end
