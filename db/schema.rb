@@ -45,10 +45,17 @@ ActiveRecord::Schema.define(version: 20160528205840) do
   end
 
   create_table "orders_products", force: :cascade do |t|
+<<<<<<< HEAD
     t.integer  "orders_id"
     t.integer  "products_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+=======
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+>>>>>>> c97fe7d07bd374c68633b0663323f0b70135ecee
     t.decimal  "unit_price"
     t.integer  "qty"
   end
