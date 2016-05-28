@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :products
   end
 
+  resources :orders
+
   get 'admin', to: 'admin#index'
   # get '/patients/:id', to: 'patients#show'
   # get 'products/new'
