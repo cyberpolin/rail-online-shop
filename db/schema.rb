@@ -45,10 +45,10 @@ ActiveRecord::Schema.define(version: 20160528205840) do
   end
 
   create_table "orders_products", force: :cascade do |t|
-    t.integer  "orders_id"
-    t.integer  "products_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "order_id"
+    t.integer  "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.decimal  "unit_price"
     t.integer  "qty"
   end
