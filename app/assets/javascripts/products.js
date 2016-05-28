@@ -1,6 +1,16 @@
 // Place all the behaviors and hooks related to the matching controller here.
 // All this logic will automatically be available in application.js.
 
+Number.prototype.truncate = function() {
+
+    digits = this.split('.')
+    digits[1] = digits[1][0]+digits[1][1]
+    console.log(digits);
+    truncated = digits.join('.');
+    console.log(truncated);
+    return truncated;
+};
+
 $(document).ready(function(){
  // localStorage.clear();
   if (localStorage.cart == undefined){
@@ -43,14 +53,14 @@ var print_cart = function(jsonCart){
     var product = JSON.parse($(this).attr('info'));
 
 
-    console.log('This is total: ' +cart.total);
 
     cart.total += parseFloat(product.price);
+
     cart.items.push({id:product.id, name:product.name, price:product.price })
 
     $('#cart-div ul').prepend('<li>'+product.name+' <i class="fa fa-times remove-item" item-id='+product.id+' aria-hidden="true"></i></li>');
     // current_total += parseFloat(product.price);
-    $('.fa-usd').html(cart.total);
+    $('.fa-usd').html(cart.total.toFixed(2));
     var current_item = {'id':product.id};
 
     localStorage.setItem("cart", JSON.stringify(cart));
@@ -66,9 +76,13 @@ var print_cart = function(jsonCart){
     var id = $(this).attr('item-id');
     // ==================
       var cart = JSON.parse(localStorage.cart);
+      console.log(cart.items.length);
       for (i = 0; i < cart.items.length; i++){
+          console.log(i);
         if (cart.items[i].id == id){
-          delete cart.items[i]
+          cart.total -= parseFloat(cart.items[i].price);
+          cart.items.splice(i,1);
+
           localStorage.setItem("cart", JSON.stringify(cart));
           break //return
         }
@@ -76,6 +90,7 @@ var print_cart = function(jsonCart){
       }
     // ==================
     $(this).parent().remove();
+     $('.fa-usd').html(cart.total.toFixed(2));
     console.log(id);
 
   });
