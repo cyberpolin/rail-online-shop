@@ -10,9 +10,6 @@ class OrdersController < ApplicationController
     order = Order.new(user_id: current_user.id)
 
     if order.save
-      # items.each |k, v|{
-
-      # }
       order_products = OrdersProduct.new(order: order, product_id: items['0']['id'], unit_price: items['0']['price'], qty: product.qty_in_stock)
 
        if order_products.save
@@ -24,6 +21,9 @@ class OrdersController < ApplicationController
     else
       render plain: "{success: false}"
     end
+
+
+
 
   end
 end

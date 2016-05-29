@@ -10,14 +10,11 @@ console.log('inside jquery')
 
     event.preventDefault();
 
-    console.log('clicked place order:')
-    console.log(this)
+
 
     var cart = localStorage.getItem('cart');
     var the_data = JSON.parse(cart);
-
-    console.log('cart:')
-    console.log(cart)
+    console.log(cart);
 
 
 
