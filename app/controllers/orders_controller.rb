@@ -1,4 +1,10 @@
 class OrdersController < ApplicationController
+  def index
+
+    @orders = Order.where("user_id = #{current_user.id}").order(created_at: :desc)
+    
+  end
+
   def new
 
     redirect_to '/sessions/new' unless current_user
@@ -7,6 +13,7 @@ class OrdersController < ApplicationController
   def create
     items = params[:items]
     order = Order.new(user_id: current_user.id)
+    order.total = params[:total]
     items.each do |item|
       # p ">>>"
       # p item[1]['id']

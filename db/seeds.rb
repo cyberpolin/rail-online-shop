@@ -18,7 +18,8 @@ end
 		photo: ["http://baconeering.com/wp-content/uploads/2016/02/bacon-heart.jpg",
 						"http://twistcatering.com/wp-content/uploads/2013/09/steak-bbq.jpg",
 						"http://cdn.shopify.com/s/files/1/0873/8278/products/4_1024x1024.jpg"].sample,
-		price: Faker::Commerce.price,
+		# Random price between 2.00 and 50.00
+		price: (rand(2.0..50.0)*100).round / 100.0,
 		qty_in_stock: [0,1,2,3,4,5,6,7,8,9,10].sample
 	)
 end
@@ -55,6 +56,17 @@ end
 	product = Product.all.sample
 	OrdersProduct.create(product_id: product.id, order_id: Order.all.sample.id, unit_price: product.price, qty: 1 + rand(5))
 end
+
+# Compute totals for all orders
+Order.all.each do |order|
+	total = 0.00
+	order.orders_products.each do |op|
+		total += op.unit_price * op.qty
+	end
+	order.total = total
+	order.save
+end
+	
 
 
 
