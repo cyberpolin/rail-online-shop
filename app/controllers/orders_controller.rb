@@ -7,29 +7,50 @@ class OrdersController < ApplicationController
 
   def new
 
+    redirect_to '/sessions/new' unless current_user
   end
 
   def create
     items = params[:items]
-
-    product = Product.find(items['0']['id'])
     order = Order.new(user_id: current_user.id)
+    items.each do |item|
+      # p ">>>"
+      # p item[1]['id']
 
-    if order.save
-      # items.each |k, v|{
+      product = Product.find(item[1]['id'])
 
-      # }
-      order_products = OrdersProduct.new(order: order, product_id: items['0']['id'], unit_price: items['0']['price'], qty: product.qty_in_stock)
 
-       if order_products.save
-         render plain: "{success: true}"
-       else
-         render plain: "{success: false}"
-       end
-
-    else
-      render plain: "{success: false}"
+      if not order.save
+        render plain: "{success: false}"
+      else
+        order_products = OrdersProduct.new(order: order, product_id: item[1]['id'], unit_price: item[1]['price'], qty: product.qty_in_stock)
+        if not order_products.save
+          render plain: {success: true}.to_json
+        end
+      end
+      product.qty_in_stock -=1
     end
+    to_client = {success: true}
+    render plain: to_client.to_json
+
+    # product = Product.find(items['0']['id'])
+    # order = Order.new(user_id: current_user.id)
+
+    # if order.save
+    #   order_products = OrdersProduct.new(order: order, product_id: items['0']['id'], unit_price: items['0']['price'], qty: product.qty_in_stock)
+
+    #    if order_products.save
+    #      render plain: "{success: true}"
+    #    else
+    #      render plain: "{success: false}"
+    #    end
+
+    # else
+    #   render plain: "{success: false}"
+    # end
+
+
+
 
   end
 end

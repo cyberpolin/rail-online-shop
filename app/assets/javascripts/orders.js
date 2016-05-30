@@ -4,30 +4,40 @@
 
 $(document).ready(function(){
 
+var destroy_local_storage = function(){localStorage.clear();
+}
+var hide_cart = function(){
+  $('#cart-div').attr('style', '');
+}
+var print_thank_you = function(){
+  $('.container').html('<h1>Thank you for shopping whit us...</h1>')
+}
+
 console.log('inside jquery')
 
   $('#place_order').on('submit', function(event) {
 
     event.preventDefault();
 
-    console.log('clicked place order:')
-    console.log(this)
+
 
     var cart = localStorage.getItem('cart');
     var the_data = JSON.parse(cart);
-
-    console.log('cart:')
-    console.log(cart)
 
 
 
     $.ajax({
       url: $(this).attr('action'),
       method: 'POST',
+      dataType: 'json',
       data: the_data
     }).
       done(function(response){
-        console.log(response)
+        if (response.success){
+          destroy_local_storage();
+          hide_cart();
+          print_thank_you();
+        }
     });
 
   });
