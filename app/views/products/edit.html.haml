@@ -2,8 +2,6 @@
 
 = form_for :product, url: product_path(@product), method: :patch do |f|
 
-
-
   - if @product.errors.any?
     %div.error
       = pluralize(@product.errors.count, "error")
@@ -33,6 +31,24 @@
   %p
     =f.label :size
     =f.text_field :size
+  %p
+    -# form.collection_check_boxes(:category_ids, @product.categories, :id, :name )
+
+    -# -@categories.each do |category|
+    -#   =category.name
+    -#   -category.products.each do |product|
+    -#     - if product.id == @product.id
+    -#       %input{:type => 'checkbox', :value => category.id, :checked => true}
+    -#     - else
+    -#       %input{:type => 'checkbox', :value => category.id, :checked => false}
+
+    -@categories.each do |category|
+      =category.name
+      - if @product.categories.include?(category)
+        %input{:type => 'checkbox', :name => "category[]", :value => category.id, :checked => true}
+      - else
+        %input{:type => 'checkbox', :name => "category[]", :value => category.id, :checked => false}
+
   %p
     = link_to 'Cancel', products_path
     = f.submit

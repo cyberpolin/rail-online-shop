@@ -3,8 +3,9 @@
   = content_tag :div, msg, class: name
 
 .row
-  .four.columns
+  .five.columns
     %img.u-max-full-width{src: @product.photo}
+
   .seven.columns
     %p
       Name:
@@ -24,7 +25,23 @@
     %p
       Color:
       = @product.color
-  .one.column
-    = link_to 'Add', new_product_path
-    = link_to 'Edit', edit_product_path(@product)
-    = link_to 'Delete', product_path(@product), method: :delete
+
+.row
+  .five.columns
+    -@product.categories.each do |category|
+      =link_to category.name, categories_path+'/'+category.id.to_s+products_path, class: :category
+
+  .seven.columns
+    - if @product.qty_in_stock == 0
+      %span.disabled
+        Add to cart
+        %i.fa.fa-2x.fa-cart-plus
+    - else
+
+      = link_to product_path(@product), id: :add_to_cart, info: :"{\"id\":\"#{@product.id}\", \"name\":\"#{@product.name}\", \"price\":\"#{@product.price}\"}" do
+        Add to cart
+        %i.fa.fa-2x.fa-cart-plus
+    - if admin?
+      = link_to 'Add', new_product_path
+      = link_to 'Edit', edit_product_path(@product)
+      = link_to 'Delete', product_path(@product), method: :delete

@@ -1,0 +1,17 @@
+%h1 Log In
+
+= form_for :user, url: sessions_path do |f|
+  / - if @user.errors.any?
+  /   %div.error
+  /     = pluralize(@user.errors.count, "error")
+
+  /   - @user.errors.full_messages.each do |msg|
+  /     %li
+  /       =msg
+  %p
+    =f.label :username
+    =f.text_field :username
+    =f.label :password
+    =f.password_field :password
+  %p
+    =f.submit(value="Log In")

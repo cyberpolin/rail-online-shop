@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.1"
+
 gem 'rails'
 gem 'pg'
 
@@ -9,7 +11,11 @@ gem 'thin'
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'sass-rails'
+gem 'font-awesome-sass'
+gem 'bcrypt'
 gem 'rails_12factor', group: :production
+gem 'figaro'
+gem 'rack_session_access'
 
 
 group :development, :test do
@@ -22,6 +28,6 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'faker'
 end
 
-ruby "2.2.5"

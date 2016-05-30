@@ -1,16 +1,26 @@
 %h1 All Products
 
+- if admin?
+  = link_to 'Add New Product', new_product_path
+
 - flash.each do |name, msg|
   = content_tag :div, msg, class: name
 
 %table
   %tr
+    %th Photo
     %th Name
     %th Description
     %th{:colspan => "2"}
   - @products.each do |product|
     %tr
+      %td
+        %img{:src => product.photo, :class => 'thumb'}
       %td= product.name
       %td= product.description
       %td= link_to 'Show', product_path(product)
+      %td
+        - if admin?
+          = link_to edit_product_path(product) do
+            %i.fa.fa-pencil-square-o 
 

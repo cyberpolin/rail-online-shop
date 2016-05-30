@@ -1,0 +1,15 @@
+%h1 Checkout
+%table#cart_table
+  %thead
+    %tr
+      %th Product Name
+      %th Price
+  %tbody
+%div#total Total: $0.00
+
+%form{action: '/orders', method: 'POST', id: 'place_order'}
+  %input{type: 'submit', value: 'Place Order'}
+
+
+
+
