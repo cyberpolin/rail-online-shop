@@ -16,6 +16,7 @@ gem 'bcrypt'
 gem 'rails_12factor', group: :production
 gem 'figaro'
 gem 'rack_session_access'
+gem 'faker'
 
 
 group :development, :test do
@@ -28,6 +29,5 @@ group :development, :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
-  gem 'faker'
 end
 
