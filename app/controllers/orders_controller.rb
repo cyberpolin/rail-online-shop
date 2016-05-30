@@ -24,6 +24,8 @@ class OrdersController < ApplicationController
       end
       product.qty_in_stock -=1
     end
+    # user = User.find(current_user.id)
+    # DoMail.order_email(@user).deliver
     to_client = {success: true}
     render plain: to_client.to_json
 
