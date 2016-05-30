@@ -1,0 +1,30 @@
+%h1 Your Order History
+%br
+-@orders.each do |order|
+	%h4
+		Order Number:
+		= order.id
+	%h6
+		Placed
+		= order.created_at.in_time_zone("Pacific Time (US & Canada)").strftime('%b %-d %Y %-I:%M:%S %p')
+	%table
+		%thead
+			%tr
+				%th
+				%th Product
+				%th Unit Price
+				%th Quantity
+		%tbody
+			-order.orders_products.each do |op|
+				%tr
+					%td
+						%img{:src => op.product.photo, :class => 'thumb'}
+					%td
+						= op.product.name
+					%td
+						= op.unit_price
+					%td
+						= op.qty
+	%p
+		Total:
+		= ['$', order.total].join('')
